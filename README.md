@@ -1,7 +1,7 @@
-# terminal-workload-report
+# Terminal-Workload-Report
 A boring plugin for oh-my-zsh which calculate and display how many commands has been executed via terminal.
 
-# Install
+### Install
 
 1. Clone this repository in oh-my-zsh's plugins directory
 
@@ -14,6 +14,6 @@ A boring plugin for oh-my-zsh which calculate and display how many commands has 
 	plugins=( [plugins...] terminal-workload-report)
 	```
 
-# Usage
+### Usage
 
 - Type in `workreport` and workload info will be displayed.
