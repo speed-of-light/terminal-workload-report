@@ -1,7 +1,8 @@
 #!/bin/sh
 function workreport() {
 	SCRIPT_PATH=$( cd `dirname $0` && pwd )
-	DATA_RECORD=$SCRIPT_PATH/data/record
+	DATA_PATH=${HOME}/.oh-my-zsh/custom/plugins/terminal-workload-report/data
+	DATA_RECORD=${DATA_PATH}/record
 	INSTANCE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 	TOTAL_RECORD=$(sed -n '$=' ~/.zsh_history)
 
@@ -16,7 +17,7 @@ function workreport() {
 	Cyan='\033[0;36m'         # Cyan
 	White='\033[0;37m'        # White
 
-	if [[ ! -d $SCRIPT_PATH/data ]]; then
+	if [[ ! -d ${DATA_PATH} ]]; then
 		mkdir $SCRIPT_PATH/data
 		echo -e "LAST_CHECK_TIME=\"$INSTANCE_TIME\"\nTOTAL_HISTORY=$TOTAL_RECORD" > $DATA_RECORD
 	else
