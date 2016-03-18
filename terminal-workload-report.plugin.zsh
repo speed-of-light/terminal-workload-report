@@ -1,6 +1,6 @@
 #!/bin/sh
 function workreport() {
-	SCRIPT_PATH=$( cd `dirname $0` && pwd )
+	SCRIPT_PATH=${HOME}/.oh-my-zsh/custom/plugins/terminal-workload-report
 	DATA_PATH=${HOME}/.oh-my-zsh/custom/plugins/terminal-workload-report/data
 	DATA_RECORD=${DATA_PATH}/record
 	INSTANCE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
@@ -18,7 +18,7 @@ function workreport() {
 	White='\033[0;37m'        # White
 
 	if [[ ! -d ${DATA_PATH} ]]; then
-		mkdir $SCRIPT_PATH/data
+		mkdir ${DATA_PATH}
 		echo -e "LAST_CHECK_TIME=\"$INSTANCE_TIME\"\nTOTAL_HISTORY=$TOTAL_RECORD" > $DATA_RECORD
 	else
 		if [[ ! -f $DATA_RECORD ]]; then
@@ -51,6 +51,7 @@ function workreport() {
 	unset CHECK_TIME
 	unset RECORDS_DATA
 	unset SCRIPT_PATH
+	unset DATA_PATH
 	unset DATA_RECORD
 
 	unset Blue
