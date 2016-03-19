@@ -1,7 +1,7 @@
 #!/bin/sh
 function workreport() {
-	SCRIPT_PATH=${HOME}/.oh-my-zsh/custom/plugins/terminal-workload-report
-	DATA_PATH=${HOME}/.oh-my-zsh/custom/plugins/terminal-workload-report/data
+	SCRIPT_PATH=$ZSH/custom/plugins/terminal-workload-report
+	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
 	DATA_RECORD=${DATA_PATH}/record
 	INSTANCE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 	TOTAL_RECORD=$(sed -n '$=' ~/.zsh_history)
