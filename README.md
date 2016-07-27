@@ -17,3 +17,4 @@ A boring plugin for oh-my-zsh which calculate and display how many commands has 
 ### Usage
 
 - Type in `workreport` and workload info will be displayed.
+- Type in `workreport reset` to reset the command history.

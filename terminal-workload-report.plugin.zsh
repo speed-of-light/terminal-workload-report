@@ -1,5 +1,5 @@
 #!/bin/sh
-function workreport() {
+function _workload_report() {
 	SCRIPT_PATH=$ZSH/custom/plugins/terminal-workload-report
 	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
 	DATA_RECORD=${DATA_PATH}/record
@@ -63,5 +63,23 @@ function workreport() {
 	unset Cyan
 	unset White
 	unset NC
+}
+
+function _workload_reset_history(){
+	cat /dev/null > ~/.zsh_history
+	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
+	DATA_RECORD=${DATA_PATH}/record
+	CHECK_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+	RECORDS_DATA="LAST_CHECK_TIME=\"$CHECK_TIME\"\nTOTAL_HISTORY=0"
+	echo -e $RECORDS_DATA > $DATA_RECORD
+}
+
+function workreport(){
+	ARGUMENTS=$@
+	if [[ $ARGUMENTS'x' == 'resetx' ]]; then
+		_workload_reset_history
+	else
+		_workload_report
+	fi
 }
 
