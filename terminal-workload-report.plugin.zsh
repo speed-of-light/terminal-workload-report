@@ -1,6 +1,9 @@
 #!/bin/sh
 
 export REPORT_PATH=~/.cache/terminal-workload-report
+
+mkdir -p $REPORT_PATH
+
 function _workload_report() {
 	SCRIPT_PATH=$REPORT_PATH
 	DATA_PATH=$REPORT_PATH/data
