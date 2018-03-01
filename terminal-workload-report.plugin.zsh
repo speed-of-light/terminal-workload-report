@@ -1,7 +1,9 @@
 #!/bin/sh
+
+export REPORT_PATH=~/.cache/terminal-workload-report
 function _workload_report() {
-	SCRIPT_PATH=$ZSH/custom/plugins/terminal-workload-report
-	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
+	SCRIPT_PATH=$REPORT_PATH
+	DATA_PATH=$REPORT_PATH/data
 	DATA_RECORD=${DATA_PATH}/record
 	INSTANCE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 	TOTAL_RECORD=$(sed -n '$=' $HISTFILE)
@@ -67,7 +69,7 @@ function _workload_report() {
 
 function _workload_reset_history(){
 	cat /dev/null > $HISTFILE
-	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
+	DATA_PATH=$REPORT_PATH/data
 	DATA_RECORD=${DATA_PATH}/record
 	CHECK_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 	RECORDS_DATA="LAST_CHECK_TIME=\"$CHECK_TIME\"\nTOTAL_HISTORY=0"
