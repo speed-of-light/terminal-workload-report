@@ -4,7 +4,7 @@ function _workload_report() {
 	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
 	DATA_RECORD=${DATA_PATH}/record
 	INSTANCE_TIME=$(date '+%Y-%m-%d %H:%M:%S')
-	TOTAL_RECORD=$(sed -n '$=' ~/.zsh_history)
+	TOTAL_RECORD=$(sed -n '$=' $HISTFILE)
 
 	# Colors
 	NC='\033[0m'       # Text Reset
@@ -66,7 +66,7 @@ function _workload_report() {
 }
 
 function _workload_reset_history(){
-	cat /dev/null > ~/.zsh_history
+	cat /dev/null > $HISTFILE
 	DATA_PATH=$ZSH/custom/plugins/terminal-workload-report/data
 	DATA_RECORD=${DATA_PATH}/record
 	CHECK_TIME=$(date '+%Y-%m-%d %H:%M:%S')
